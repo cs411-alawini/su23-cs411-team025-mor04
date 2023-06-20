@@ -8,7 +8,7 @@
 | TeamName    |         mor04          |
 | Captain     |    Akhil Pothineni     |
 | Captain     |  akhilp3@illinois.edu  |
-| Member1     |      Zhou Tianren      |
+| Member1     |      Bobby Wang        |
 | Member1     | tianren3@illinois.edu  |
 | Member2     |      Yousuf Bilal      |
 | Member2     | byousuf2@illinois.edu  |
