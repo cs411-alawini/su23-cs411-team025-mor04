@@ -10,11 +10,13 @@
 <body>
     <!-- Athletes: Add & Delete -->
     <h1>Athlete Database</h1>
+<details>
+    <summary>Open</summary>
     <div class="container mt-4">
         <div class="card">
             <div class="card-body">
                 <h2>Add Athlete</h2>
-                <div class="form-group"></div>
+                <div class="form-group">
                     <form action="addAthlete" method="POST">
                 
                     <label for="firstName">First Name:</label>
@@ -29,37 +31,42 @@
 
                     <label for="discipline">Sport/Discipline:</label>
                     <input type="text" class="form-control col-lg-9" id="discipline" aria-describedby="emailHelp" placeholder="Athlete's Sport/Discipline" name="discipline">
+                    <br>
                     <button type="submit" class="btn btn-primary">Add</button>
                     </form>
                 </div> 
             </div>
         </div>
-
+        <br>
         <div class="card">
             <div class="card-body">
                 <h2>Remove Athlete</h2>
-                <div class="form-group"></div>
+                <div class="form-group">
                     <form action="removeAthlete" method="POST">
                         <label for="firstName">First Name:</label>
                         <input type="text" class="form-control col-lg-9" id="firstName" aria-describedby="emailHelp" placeholder="Athlete's First Name" name="firstName">
                         
                         <label for="lastName">Last Name:</label>
                         <input type="text" class="form-control col-lg-9" id="lastName" aria-describedby="emailHelp" placeholder="Athlete's Last Name (all caps)" name="lastName">
+                        <br>
                         <button type="submit" class="btn btn-primary">Remove</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-    <br>
+</details>
+    <hr>
 
     <!-- Coaches: Add & Delete -->
     <h1>Coach Database</h1>
+<details>
+    <summary>Open</summary>
     <div class="container mt-4">
         <div class="card">
             <div class="card-body">
                 <h2>Update Coach</h2>
-                <div class="form-group"></div>
+                <div class="form-group">
                     <form action="addCoach" method="POST">
                         <label for="firstName">First Name:</label>
                         <input type="text" class="form-control col-lg-9" id="firstName" aria-describedby="emailHelp" placeholder="Coach's First Name" name="firstName">
@@ -73,11 +80,10 @@
 
                         <label for="discipline">Sport/Discipline:</label>
                         <input type="text" class="form-control col-lg-9" id="discipline" aria-describedby="emailHelp" placeholder="Coach's Sport/Discipline" name="discipline">
-                        
-                        <button type="submit" class="btn btn-primary">Add</button>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </form> 
                 </div>
-                <br>
             </div>
         </div>
         <br>
@@ -98,10 +104,12 @@
             </div>
         </div>
     </div>
-    <br>
-
+</details>
+    <hr>
     <!-- Teams: Add & Delete -->
     <h1>Team Database</h1>
+<details>
+    <summary>Open</summary>
     <div class="container mt-4">
         <div class="card">
             <div class="card-body">
@@ -126,7 +134,7 @@
                 </form> 
             </div>
         </div>
-
+        <br>
         <div class="card">
             <div class="card-body">
                 <h2>Remove Team</h2>
@@ -141,10 +149,13 @@
             </div>
         </div>
     </div>
-    <br>
+</details>
+    <hr>
 
     <!-- Medals: Update -->
     <h1>Medal Count</h1>
+<details>
+    <summary>Open</summary>
     <div class="container mt-4">
         <div class="card">
             <div class="card-body">
@@ -167,6 +178,7 @@
                 </form> 
             </div>
         </div>
+        <br>
         <div class="card">
             <div class="card-body">
                 <h2>Strip Medal</h2>
@@ -189,10 +201,13 @@
             </div>
         </div>
     </div>
-    <br>
+</details>
+    <hr>
 
     <!-- "Gender" aka Team/Individual participants: Update -->
     <h1>Team/Individual Participant Database</h1>
+<details>
+    <summary>Open</summary>
     <div class="container mt-4">
         <div class="card">
             <div class="card-body">
@@ -212,7 +227,7 @@
                 </form> 
             </div>
         </div>
-
+        <br>
         <div class="card">
             <div class="card-body">
                 <h2>Remove Team/Individual</h2>
@@ -232,59 +247,70 @@
             </div>
         </div>
     </div>
-    <br>
+</details>
+    <hr>
 
     <!-- Searches -->
     <h1>Searches</h1>
+<details>
+    <summary>Open</summary>
     <div class="container mt-4">
         <div class="card">
             <div class="card-body">
                 <h2>Find Athlete by Name, Country, and/or Sport</h2>
-                <form action="findAthlete" method="POST">
                 <div class="form-group">
-                    <label for="firstName">First Name:</label>
-                    <input type="text" class="form-control col-lg-9" id="textFN" aria-describedby="emailHelp" placeholder="Athlete's First Name" n>
-                    
-                    <label for="lastName">Last Name:</label>
-                    <input type="text" class="form-control col-lg-9" id="textLN" aria-describedby="emailHelp" placeholder="Athlete's Last Name (all caps)" n>
-
-                    <label for="country">Country Name:</label>
-                    <p>*Note: Full/Official country name is required. For example: USA -> United States of America; Russia is "ROC" for Russian Olympic Committee.</p>
-                    <input type="text" class="form-control col-lg-9" id="textCount" aria-describedby="emailHelp" placeholder="Athlete's Country" n>
-
-                    <label for="discipline">Sport/Discipline:</label>
-                    <input type="text" class="form-control col-lg-9" id="textDisc" aria-describedby="emailHelp" placeholder="Athlete's Sport/Discipline" n>
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary">Search</button>
-                </form> 
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="card-body">
-                <h2>Find Coach by Name, Country, and/or Sport</h2>
-                <form action="findCoach" method="POST">
                     <div class="form-group">
+                        <form action="findAthlete" method="POST">
+                    
                         <label for="firstName">First Name:</label>
-                        <input type="text" class="form-control col-lg-9" id="textFN" aria-describedby="emailHelp" placeholder="Coach's First Name" n>
+                        <input type="text" class="form-control col-lg-9" id="firstName" aria-describedby="emailHelp" placeholder="Athlete's First Name" name="firstName">
                         
                         <label for="lastName">Last Name:</label>
-                        <input type="text" class="form-control col-lg-9" id="textLN" aria-describedby="emailHelp" placeholder="Coach's Last Name (all caps)" n>
+                        <input type="text" class="form-control col-lg-9" id="lastName" aria-describedby="emailHelp" placeholder="Athlete's Last Name (all caps)" name="lastName">
     
                         <label for="country">Country Name:</label>
                         <p>*Note: Full/Official country name is required. For example: USA -> United States of America; Russia is "ROC" for Russian Olympic Committee.</p>
-                        <input type="text" class="form-control col-lg-9" id="textCount" aria-describedby="emailHelp" placeholder="Coach's Country" n>
+                        <input type="text" class="form-control col-lg-9" id="country" aria-describedby="emailHelp" placeholder="Athlete's Country" name="country">
     
                         <label for="discipline">Sport/Discipline:</label>
-                        <input type="text" class="form-control col-lg-9" id="textDisc" aria-describedby="emailHelp" placeholder="Coach's Sport/Discipline" n>
+                        <input type="text" class="form-control col-lg-9" id="discipline" aria-describedby="emailHelp" placeholder="Athlete's Sport/Discipline" name="discipline">
+                        <br>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
                     </div>
+                </div>
                 <br>
-                <button type="submit" class="btn btn-primary">Search</button>
-                </form> 
+ 
             </div>
         </div>
-
+        <br>
+        <div class="card">
+            <div class="card-body">
+                <h2>Find Coach by Name, Country, and/or Sport</h2>
+                <div class="form-group">
+                    <div class="form-group">
+                        <form action="findCoach" method="POST">
+                    
+                        <label for="firstName">First Name:</label>
+                        <input type="text" class="form-control col-lg-9" id="firstName" aria-describedby="emailHelp" placeholder="Coach's First Name" name="firstName">
+                        
+                        <label for="lastName">Last Name:</label>
+                        <input type="text" class="form-control col-lg-9" id="lastName" aria-describedby="emailHelp" placeholder="Coach's Last Name (all caps)" name="lastName">
+    
+                        <label for="country">Country Name:</label>
+                        <p>*Note: Full/Official country name is required. For example: USA -> United States of America; Russia is "ROC" for Russian Olympic Committee.</p>
+                        <input type="text" class="form-control col-lg-9" id="country" aria-describedby="emailHelp" placeholder="Coach's Country" name="country">
+    
+                        <label for="discipline">Sport/Discipline:</label>
+                        <input type="text" class="form-control col-lg-9" id="discipline" aria-describedby="emailHelp" placeholder="Coach's Sport/Discipline" name="discipline">
+                        <br>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <br>
         <div class="card">
             <div class="card-body">
                 <h2>Find Participating Countries in a Discipline</h2>
@@ -292,13 +318,14 @@
                     <form action="teamsInSport" method="POST">
                         <label for="discipline">Sport/Discipline:</label>
                         <input type="text" class="form-control col-lg-9" id="discipline" aria-describedby="emailHelp" placeholder="Sport/Discipline" name="discipline">
+                        <br>
                         <button type="submit" class="btn btn-primary">Search</button>
                     </form>
                 </div>
                 <br>
             </div>
         </div>
-
+        <br>
         <div class="card">
             <div class="card-body">
                 <h2>Find Disiplines Participated by a Country</h2>
@@ -306,29 +333,72 @@
                     <form action="countryInSports" method="POST">
                         <label for="country">Country Name:</label>
                         <p>*Note: Full/Official country name is required. For example: USA -> United States of America; Russia is "ROC" for Russian Olympic Committee.</p>
-                        <input type="text" class="form-control col-lg-9" id="textCount" aria-describedby="emailHelp" placeholder="Full Country Name" n>
+                        <input type="text" class="form-control col-lg-9" id="textCount" aria-describedby="emailHelp" placeholder="Full Country Name" name="country">
+                        <br>
                         <button type="submit" class="btn btn-primary">Search</button>
                     </form> 
                 </div>
                 <br> 
             </div>
         </div>
-
+        <br>
         <div class="card">
             <div class="card-body">
                 <h2>Medal Count of a Country</h2>
-                <form action="medalCount" method="POST">
                 <div class="form-group">
-                    <label for="country">Country Name:</label>
-                    <p>*Note: Full/Official country name is required. For example: USA -> United States of America; Russia is "ROC" for Russian Olympic Committee. 
-                        <br>An empty search gets the full medal count</p>
-                    <input type="text" class="form-control col-lg-9" id="textCount" aria-describedby="emailHelp" placeholder="Full Country Name" n>
-                </div>
-                <br>
-                <button type="submit" class="btn btn-primary">Search</button>
-                </form> 
+                    <form action="medalsCountry" method="POST">
+                        <label for="country">Country Name:</label>
+                        <p>*Note: Full/Official country name is required. For example: USA -> United States of America; Russia is "ROC" for Russian Olympic Committee.</p>
+                        <input type="text" class="form-control col-lg-9" id="country" aria-describedby="emailHelp" placeholder="Full Country Name" name="country">
+                        <br>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form> 
+                </div> 
             </div>
         </div>
     </div>
+    <hr>
+</details>
+<hr>
+    <!-- Advanced Queries -->
+    <h1>Advanced Queries</h1>
+<details>
+    <summary>Open</summary>
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-body">
+                <h2>Most Athletes Coach Combos ranked by country</h2>
+                <form action="advancedQuery1" method="GET">
+                    <button id="mybutton" type="submit" class="btn btn-primary">Get</button>
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <h2>Country with Most Medals</h2>
+                <form action="advancedQuery2" method="GET">
+                    <button type="submit" class="btn btn-primary">Get</button>
+                </form>
+            </div>
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-body">
+                <h2>Above Average</h2>
+                <div class="form-group">
+                    <form action="aboveAverage" method="POST">
+                        <label for="country">Country Name:</label>
+                        <p>*Note: Full/Official country name is required. For example: USA -> United States of America; Russia is "ROC" for Russian Olympic Committee.</p>
+                        <input type="text" class="form-control col-lg-9" id="country" aria-describedby="emailHelp" placeholder="Full Country Name" name="country">
+                        <br>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form> 
+                </div>
+                <br> 
+            </div>
+        </div>
+    </div>
+</details>
+    
 </body>
 </html>

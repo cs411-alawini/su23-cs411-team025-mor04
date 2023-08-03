@@ -130,14 +130,9 @@ app.post('/addCoach', function(req, res) {
 });
 
 app.post('/teamsInSport', function(req, res) {
-	// var temp = [];
-	// function setRows(rows){
-	// 	temp = rows;
-	// 	console.log(rows);
-	// }
 	var discipline = req.body.discipline;
 	
-	var sql = `SELECT NOC FROM teams WHERE Discipline='${discipline}'`;
+	var sql = `SELECT NOC, Event FROM teams WHERE Discipline='${discipline}'`;
 	// var sql = `SELECT NOC FROM teams WHERE Discipline='Basketball'`;
 	console.log(sql);
 	
@@ -146,20 +141,121 @@ app.post('/teamsInSport', function(req, res) {
 			throw(err);
 		}
 		// setRows(rows);
-		res.send(rows);
-		// res.render('teamsInSport', {title: 'Teams in Sport', action:'list', teamData:rows});
+		// res.send(rows);
+		res.render('teamsTable', {title: 'Teams in Sport', data:rows});
 	});
-	// console.log(temp);
-	// res.send(JSON.stringify(rows, null, 3));
 });
 
-/*
-console.log('Console Log');
-connection.query([SQL query], function(err, result) 
-{
-  if(err) {res.send(err) return;}
-  res.redirect('/success');
-} )
-*/
+app.post('/countryInSports', function(req, res) {
+	var country = req.body.country;
+	
+	var sql = `SELECT Discipline, Event FROM teams WHERE NOC='${country}'`;
+	console.log(sql);
+	
+	temp = connection.query(sql, function(err, rows) {
+		if (err) {
+			throw(err);
+		}
+		// setRows(rows);
+		// res.send(rows);
+		console.log(rows);
+		res.render('countriesTable', {title: 'Countries in Sport', data:rows});
+	});
+});
+app.post('/findAthlete', function(req, res){
+	var firstName = req.body.firstName;
+	var lastName = req.body.lastName;
+	var country = req.body.country;
+	var discipline = req.body.discipline;
+
+	var name = lastName + ' ' + firstName;
+	var sql = `SELECT * FROM athletes WHERE Name='${name}'`;
+	console.log(sql);
+	temp = connection.query(sql, function(err, rows){
+		if(err){
+			throw(err);
+		}
+		console.log(rows);
+		res.render('findAthleteTable', {title: 'Search Results', data:rows});
+	});
+});
+
+app.post('/findCoach', function(req, res){
+	var firstName = req.body.firstName;
+	var lastName = req.body.lastName;
+	var country = req.body.country;
+	var discipline = req.body.discipline;
+
+	var name = lastName + ' ' + firstName;
+	var sql = `SELECT * FROM coaches WHERE NOC='${country}'`;
+	console.log(sql);
+	temp = connection.query(sql, function(err, rows){
+		if(err){
+			throw(err);
+		}
+		console.log(rows);
+		res.render('findCoachTable', {title: 'Search Results', data:rows});
+	});
+});
+app.post('/medalsCountry', function(req, res){
+	var country = req.body.country;
+	var sql = `SELECT * FROM medals WHERE NOC='${country}'`;
+	temp = connection.query(sql, function(err, rows){
+		if(err){
+			throw(err);
+		}
+		console.log(rows);
+		res.render('medalsTable', {title: 'Search Results', data:rows});
+	})
+})
+
+app.get('/advancedQuery1', function(req,res) {
+	var sql = 'select athletes.NOC, Count(athletes.NOC) as number from athletes join coaches on athletes.NOC = coaches.NOC and athletes.Discipline = coaches.Discipline group by athletes.NOC order by Count(athletes.NOC) desc limit 15';
+	console.log(sql);
+	temp = connection.query(sql, function(err, rows) {
+		if (err) {
+			throw(err);
+		}
+		console.log(rows);
+		res.render('advq1', {title:'Advanced Query', data:rows})	
+	});
+});
+app.get('/advancedQuery2', function(req,res) {
+	var sql = 'select * from medals m where m.Gold >= all(select m.Gold from medals m) union select * from medals m2 where m2.Silver >= all(select m2.Silver from medals m2)';
+	console.log(sql);
+	temp = connection.query(sql, function(err, rows) {
+		if (err) {
+			throw(err);
+		}
+		console.log(rows);
+		res.render('advq2', {title: 'Advanced Query', data:rows})
+	});
+});
+app.post('/aboveAverage', function(req, res) {
+	var country = req.body.country;
+	
+	var sql = `CALL MedalsAboveAverage('${country}')`;
+	console.log(sql);
+	
+	temp = connection.query(sql, function(err, rows) {
+		if (err) {
+			throw(err);
+		}
+		console.log(rows[0][0]);
+		if(rows[0][0].above_avg == 1){
+			res.send('They are above average');
+		}else{
+			res.send('They are not above average');
+		}
+	});
+});
+
+// console.log('Console Log');
+// connection.query([SQL query], function(err, result) 
+// {
+//   if(err) {res.send(err) return;}
+//   res.redirect('/success');
+// } )
+
 
 app.listen(80, function () {console.log('Node app is running on port 80'); });
