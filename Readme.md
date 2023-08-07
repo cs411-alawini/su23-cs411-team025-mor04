@@ -1,6 +1,8 @@
 # Team025-SampleProject
 This is a template for CS411 project repository. Please make sure that your title follows the convention: [team025]-[mor04]. All TeamID should have a three digit coding (i.e. if you are team 20, you should have `team020` as your ID.). You should also make sure that your url for this repository is [su23-cs411-team025-mor04.git] so TAs can correctly clone your repository and keep them up-to-date.
 
+Video: https://youtu.be/4vrTtT3B6ow
+
 Once you setup your project, please remember to submit your team formation to the team form.
 
 ## Permission
